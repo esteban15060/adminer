@@ -1241,6 +1241,9 @@ function select_value($val, $link, $field, $text_length) {
 		}
 		return "<table cellspacing='0'>$return</table>";
 	}
+	if (!mb_check_encoding($val,"UTF-8")){
+		$val=utf8_encode($val);
+	}
 	if (!$link) {
 		$link = $adminer->selectLink($val, $field);
 	}
